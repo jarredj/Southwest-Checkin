@@ -18,6 +18,7 @@ parser.add_option("-t", "--time", action="store", dest="time",
 
 (options, args) = parser.parse_args()
 
+
 # Create a new instance of the Chrome driver
 driver = webdriver.Chrome()
 
@@ -74,4 +75,10 @@ printDocs = driver.find_element_by_id('printDocumentsButton')
 while not printDocs.is_displayed():
 	print
 printDocs.click()
+
+print "Checked in!"
+boardingInfo = driver.find_elements_by_class_name("boardingInfo")
+for e in boardingInfo:
+	print e.text
+
 
